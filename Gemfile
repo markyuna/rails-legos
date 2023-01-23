@@ -43,11 +43,18 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
+gem "autoprefixer-rails"
+gem "font-awesome-sass", "~> 6.1"
 gem "sassc-rails"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "dotenv-rails", groups: [:development, :test]
 gem "cloudinary"
+gem "geocoder"
 gem "devise"
+gem "pundit"
+gem "faker"
+gem "pg_search"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

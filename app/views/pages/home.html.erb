@@ -1,0 +1,36 @@
+<h1>Ready to plan your next trip?</h1>
+<div class="container">
+  <div class="container-2">
+
+
+  <div class="row">
+    <div class="col-12 overlay">
+      <%= image_tag "banner.jpg", id:"banner_image" %>
+    </div>
+    <div class="centered">Not sure where to go? Perfect!</div>
+    <%= link_to "Check out our products!", products_path, class:"btn btn-primary centered-2" %>
+    </div>
+
+  </div>
+  <hr>
+  <h3>Check out our top rated locations!</h3>
+
+  <div id="carouselExampleIndicators" class="carousel slide shadow-sm border" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+    </ol>
+   
+    <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true" style="color:black;"></span>
+      <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </button>
+  </div>
+</div>
