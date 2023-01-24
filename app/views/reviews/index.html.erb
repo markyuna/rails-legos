@@ -1,4 +1,9 @@
-<h1>My reviews</h1>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+   <h1 class="display-1 pt-5">Mes avis</h1>
+  </div>
+</div>
+
 <div class="container">
   <div class="row d-flex justify-content-center">
     <% @reviews.each do |review| %>
@@ -42,13 +47,13 @@
 
           <p><%= review.content %></p>
 
-          <p>From <strong><%= @booking.first_day_of_booking %></strong> to <strong><%= @booking.last_day_of_booking %></strong></p>
-          <p>Total price <strong><%= @booking.total_price %>€</strong></p>
+          <p>À partir de <strong><%= @booking.first_day_of_booking %></strong> jusq'au <strong><%= @booking.last_day_of_booking %></strong></p>
+          <p>Prix ​​total <strong><%= @booking.total_price %>€</strong></p>
 
           <div>
-            <%= link_to "View", review_path(review), class: "text-success" %>
-            <%= link_to "Edit", edit_review_path(review), class: "text-warning" %>
-            <%= link_to "Delete",
+            <%= link_to "jeter un oil", review_path(review), class: "text-success" %>
+            <%= link_to "Modifier", edit_review_path(review), class: "text-warning" %>
+            <%= link_to "Suprimer",
             review_path(review),
             method: :delete,
             data: { confirm: "Are you sure?" }, class: "text-danger" %>

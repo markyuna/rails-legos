@@ -1,0 +1,31 @@
+// Import your components CSS files here.
+@import "alert";
+@import "avatar";
+@import "cover";
+@import "navbar";
+@import "footer";
+@import "user_form";
+@import "map";
+@import "calendar";
+@import "products";
+@import "images";
+
+.products-photo {
+  margin-bottom: 16px;
+}
+
+.card-img-top.my_product_image {
+  width: 100%;
+  max-width: initial;
+}
+
+
+.card-block.p-3 {
+  p {
+    font-size: 16px;
+  }
+}
+
+.card.mb-2 {
+  border-radius: 16px;
+}

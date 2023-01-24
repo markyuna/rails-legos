@@ -1,8 +1,13 @@
-<h1>Edit your review</h1>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+   <h1 class="display-1 pt-5">Modifier votre avis</h1>
+  </div>
+</div>
+
 <div class="container">
   <%= simple_form_for [ @review ] do |f| %>
     <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-    <%= f.input :content, hint: "Edit your coment for this review" %>
-    <%= f.submit "Edit review", class: "btn btn-primary" %>
+    <%= f.input :content, hint: "Modifiez votre commentaire pour cet avis" %>
+    <%= f.submit "Modifier l'avis", class: "btn btn-outline-warning" %>
   <% end %>
 </div>

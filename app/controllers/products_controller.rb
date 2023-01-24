@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
         lat: product.latitude,
         lng: product.longitude,
         info_window: render_to_string(partial: "info_window", locals: { product: product }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        marker_html: render_to_string(partial: "marker", locals: {product: product})
       }
     end
   end
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
 
   def search
     if params[:query].present?
-      @products = Product.search_by_country_city_address(params[:query])
+      @products = Product.search_by_city_address(params[:query])
     else
       @products = Product.all
     end
@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
         lat: product.latitude,
         lng: product.longitude,
         info_window: render_to_string(partial: "info_window", locals: { product: product }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        marker_html: render_to_string(partial: "marker", locals: {product: product})
       }
     end
     authorize @products

@@ -1,9 +1,15 @@
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+   <h1 class="display-1 pt-5">Ajouter un commentaire</h1>
+  </div>
+</div>
+
 <% @product = Product.find(@booking.product_id) %>
 <h1>How was your stay at <strong class="text-muted"><%= @product.address %></strong>?</h1>
 <div class="container">
   <%= simple_form_for [ @booking, @review ] do |f| %>
     <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
     <%= f.input :content, hint: "Tell us more about your experience in #{@product.address}" %>
-    <%= f.submit "Add review", class: "btn btn-primary" %>
+    <%= f.submit "Ajouter", class: "btn btn-primary" %>
   <% end %>
 </div>

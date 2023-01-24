@@ -1,8 +1,14 @@
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+   <h1 class="display-1 pt-5">Votre commentaire</h1>
+  </div>
+</div>
+
 <% @booking = Booking.find(@review.booking_id) %>
 <% @product = Product.find(@booking.product_id) %>
 <div class="container">
   <div class="d-flex justify-content-around align-items-center">
-    <h1>Your <strong class="text-muted"><%= @product.address %></strong> review</h1>
+    <h1>Your <strong class="text-muted"><%= @product.title %></strong> review</h1>
     <%= link_to "Back to your stay", booking_path(@booking), class: "btn btn-primary btn-sm" %>
   </div>
   <div class="review-card d-flex row justify-content-around">
