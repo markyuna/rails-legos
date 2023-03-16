@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsLegos</title>
+    <title>Location de LEGOS</title>
+    <link rel="icon" href="/assets/Logo_Bric.png" type="image/png">
+
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +19,7 @@
   </head>
 
   <body>
-    <%= render "layouts/navbar" %>
+    <%= render "shared/navbar" %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

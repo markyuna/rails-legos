@@ -5,6 +5,24 @@ h1, h3 {
   color: $sand;
 }
 
+div.et_pb_section.et_pb_section_0 {
+  background-image: radial-gradient(circle at top left,rgba(255,255,255,0.89) 30%,rgba(255,255,255,0) 80%),url(https://www.shareloc36.com/wp-content/uploads/2021/04/lego-background-scaled.jpg)!important;
+}
+
+.et_pb_section_0.et_pb_section {
+  padding-top: 12vw;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+.et_pb_section {
+  position: relative;
+  background-color: #fff;
+  background-position: 50%;
+  background-size: cover;
+}
+
 #banner_image, .calendar {
   border-style: solid;
   border-color: $light-gray;
@@ -33,10 +51,10 @@ h1, h3 {
 }
 
 .row {
-  p {
-    font-size: 12px;
-    color: $gray;
-  }
+  width: 80%;
+  max-width: 1080px;
+  margin: auto;
+  position: relative;
 }
 
 .top_rated_preview {
