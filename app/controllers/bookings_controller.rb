@@ -3,17 +3,37 @@ class BookingsController < ApplicationController
   before_action :find_booking, only: [ :show, :edit, :update, :destroy ]
   before_action :find_product, only: [ :new, :create ]
 
+  def accept
+    @booking = Booking.find(params[:id])
+    authorize @booking, :accept?
+    @booking.update(status: "accepted")
+    if @booking.product.update(status: true)
+    redirect_to my_products_path, notice: "Réservation acceptée"
+    else
+      render :new
+    end
+  end
+
+  def reject
+    @booking = Booking.find(params[:id])
+    authorize @booking, :reject?
+    @booking.update(status: "rejected")
+    @booking.product.update(status: false)
+    redirect_to my_products_path, notice: "Réservation refusée"
+  end
+
   def index
-    @bookings = policy_scope(Booking)
+    @bookings = Booking.all
+    # @bookings = policy_scope(Booking)
   end
 
   def new
     @booking = Booking.new
-    authorize @booking
+    # authorize @booking
   end
 
   def show
-    authorize @booking
+    # authorize @booking
   end
 
   def create
@@ -21,7 +41,7 @@ class BookingsController < ApplicationController
     @booking.user_id = @user.id
     @booking.product_id = @product.id
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price
-    authorize @booking
+    # authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -30,15 +50,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    authorize @booking
+    # authorize @booking
   end
 
   def update
     new_id = @booking.product_id
     @product = Product.find(new_id)
     @booking.update(booking_params)
-    @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price
-    authorize @booking
+    @booking.total_price = total_price(@booking, @product)    # authorize @booking
     if @booking.save
       redirect_to booking_path(@product, @booking)
     else
@@ -47,7 +66,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    authorize @booking
+    # authorize @booking
     @booking.destroy
     redirect_to bookings_path
   end
@@ -55,8 +74,15 @@ class BookingsController < ApplicationController
 
   private
 
+  def total_price (booking, product)
+    (((@booking.end_date - @booking.start_date).to_i) * @product.price)/7
+  end
+
+  # def booking_params
+  #   params.require(:booking).permit(:first_day_of_booking, :last_day_of_booking)
+  # end
   def booking_params
-    params.require(:booking).permit(:first_day_of_booking, :last_day_of_booking)
+    params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
   end
 
   def find_booking

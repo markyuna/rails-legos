@@ -16,12 +16,12 @@
               <p class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= product.description %> people</small><br>
               <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
-              <% if policy(booking).edit? %>
+              <%# if policy(booking).edit? %>
                 <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %>
-              <% end %>
-              <% if policy(booking).destroy? %>
+              <%# end %>
+              <%# if policy(booking).destroy? %>
                 <%= link_to 'Delete', booking, method: :delete, data: {confirm: "sure?"}, class: "btn btn-primary" %>
-              <% end %>
+              <%# end %>
             </div>
           </div>
         </div>
@@ -29,9 +29,9 @@
     </div>
     <div class="row">
       <div class="container">
-        <% if policy(Product).create? %>
+        <%# if policy(Product).create? %>
           <%= link_to "Back to All products!", products_path, class:"btn btn-primary" %>
-        <% end %>
+        <%# end %>
         <%= link_to 'All your reviews', reviews_path, class: "btn btn-primary" %>
       </div>
     </div>

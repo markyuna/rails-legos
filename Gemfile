@@ -51,7 +51,6 @@ gem "cloudinary"
 gem "geocoder"
 gem "devise"
 gem 'devise-bootstrap-views'
-gem "pundit"
 gem "faker"
 gem "pg_search"
 

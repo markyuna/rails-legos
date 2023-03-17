@@ -3,8 +3,8 @@ class ProductsController < ApplicationController
   before_action :find_product, only: %i[show edit update destroy reviews]
 
   def index
-    # @products = Product.all
-    @products = policy_scope(Product)
+    @products = Product.all
+    # @products = policy_scope(Product)
 
       @markers = @products.geocoded.map do |product|
       {
@@ -18,13 +18,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    authorize @product
+    # authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.user_id = @user.id
-    authorize @product
+    # authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
 
   def my_products
     @products = current_user.products
-    authorize @products
+    # authorize @products
   end
 
   def search
@@ -72,7 +72,7 @@ class ProductsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: {product: product})
       }
     end
-    authorize @products
+    # authorize @products
     # authorize @markers
   end
 

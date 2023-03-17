@@ -1,19 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-            <%= link_to root_path do %>
-            <%= image_tag 'Logo_Bric.png', class:"logo"%>
-           <% end %>
-  <%# <div class="">
-      <div class="container d-flex justify-content-center">
-        <nav style="--gp-section-max-width:1120px">
-          <div class="container-fluid">
-            <form class="d-flex" role="search">
-              <input class="form-control rounded-pill col-6 me-3" type="search" placeholder="Trouver une oeuvre" aria-label="Une envie ?">
-              <button class="btn btn-outline-primary rounded-pill col-4" type="submit">Le(t's) go</button>
-            </form>
-          </div>
-         </nav>
-      </div>
-  </div> %>
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to root_path do %>
+  <%= image_tag 'Logo_Bric.png', class:"logo"%>
+  <% end %>
   <%= form_with url: products_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :query,
       params[:query],
@@ -22,35 +11,57 @@
     %>
     <%= submit_tag "Le(t's) go", class: "btn btn-outline-primary rounded-pill col-4" %>
   <% end %>
-
-</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 link_list">
+        <li class="nav-item">
+          <%= link_to 'ACCUEIL', root_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            LOCATION
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Comment ça marche ?</a></li>
+            <li><a class="dropdown-item" href="#">Les modèles</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            A PROPOS
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Qui sommes-nous ?</a></li>
+            <li><a class="dropdown-item" href="#">Avis clients</a></li>
+            <li><a class="dropdown-item" href="#">Sources et technos</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">CONTACT</a>
+        </li>
+      </ul>
+    </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-       <% if user_signed_in? %>
-          <li class="nav-item dropdown sign-up">
-            <img class="avatar dropdown-toggle sign-in" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/assets/sign_in.png" />
-            <img class="overlay" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="/assets/sign_up.png" />
-
+        <% if user_signed_in? %>
+          <%= image_tag "sign_in.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Profil - <%= current_user.email %></a>
-              <a class="dropdown-item" href="<%= my_products_path %>">Mes produits</a>
-              <a class="dropdown-item" href="<%= new_product_path %>">Ajouter un produit</a>
-              <a class="dropdown-item" href="<%= bookings_path %>">Mes réservations</a>
+              <%= link_to "Mes produits", my_products_path, class: "dropdown-item" %>
+              <%= link_to "Ajouter un produit", new_product_path, class: "dropdown-item" %>
+              <%= link_to "Mes réservations", bookings_path, class: "dropdown-item" %>
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
-            <% else %>
-            <li class="nav-item">
-            <%#= link_to "S'enregistrer", new_user_registration_path, class: 'btn btn-outline-primary rounded-pill mx-2' %>
-            <%= link_to "Se connecter", new_user_session_path, class: 'btn btn-outline-primary rounded-pill mx-2' %>
-            </li>
-            <% end %>
           </li>
-
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "CONNEXION", new_user_session_path, class:'nav-link' %>
+            </li>
+        <% end %>
       </ul>
     </div>
   </div>
-</div>
+</nav>

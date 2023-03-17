@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    authorize @review
+    # authorize @review
   end
 
   def create
@@ -29,22 +29,22 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    authorize @review
+    # authorize @review
   end
 
   def edit
-    authorize @review
+    # authorize @review
   end
 
   def update
-    authorize @review
+    # authorize @review
     @review.update(review_params)
 
     redirect_to review_path(@review)
   end
 
   def destroy
-    authorize @review
+    # authorize @review
     @review.destroy
     redirect_to bookings_path
   end
