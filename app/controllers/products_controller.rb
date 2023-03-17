@@ -93,7 +93,7 @@ class ProductsController < ApplicationController
       redirect_to error_path
     else
       @product = Product.find(params[:id])
-      authorize @product
+      # authorize @product
     end
   end
 
