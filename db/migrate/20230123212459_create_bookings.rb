@@ -1,10 +1,9 @@
 class CreateBookings < ActiveRecord::Migration[7.0]
   def change
     create_table :bookings do |t|
-      t.date :start_date
-      t.date :end_date
-      t.string :status, default: "pending"
-      t.float :total_price
+      t.date :first_day_of_booking
+      t.date :last_day_of_booking
+      t.integer :total_price
       t.references :product, null: false, foreign_key: true
       t.references :user, null: false, foreign_key: true
 

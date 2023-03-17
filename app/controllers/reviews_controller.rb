@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :find_user
-  before_action :find_booking, only: [ :new, :create ]
-  before_action :find_review, only: [ :show, :edit, :update, :destroy ]
+  before_action :find_booking, only: %i[new create]
+  before_action :find_review, only: %i[show edit update destroy ]
 
   def index
-    @reviews = Review.all
+    # @reviews = Review.all
     # reviews_all = policy_scope(Review)
     @reviews = reviews_all.select do |review|
       booking = Booking.find(review.booking_id)

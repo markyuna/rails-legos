@@ -5,12 +5,8 @@
       <% end %>
       <h2 class="card-text"><%= @product.title %></h2><br>
       <p class="card-text"><%= @product.description %></p><br>
-      <p class="card-text"><%= @product.price %>€/semaine </p><br>
-      <% if @product.status? %>
-        <p class="card-text text-success">Disponible</p><br>
-      <% else %>
-        <p class="card-text">Indisponible</p><br>
-      <% end %>
+      <p class="card-text"><%= @product.price_per_day %>€/semaine </p>
+      <br>
 
       <a href="#" class=""> <%= link_to "Louer", "/products/#{params[:id]}/bookings/new" %></a>
   </div>

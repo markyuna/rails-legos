@@ -43,10 +43,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_213537) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
-    t.string "status", default: "pending"
-    t.float "total_price"
+    t.date "first_day_of_booking"
+    t.date "last_day_of_booking"
+    t.integer "total_price"
     t.bigint "product_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -60,13 +59,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_213537) do
     t.text "description"
     t.string "address"
     t.string "photo"
-    t.integer "price"
+    t.integer "price_per_day"
     t.string "city"
     t.integer "capacity"
     t.string "location"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "status", default: true
     t.float "latitude"
     t.float "longitude"
     t.bigint "user_id", null: false

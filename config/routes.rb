@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  devise_for :users
 
   root to: 'pages#home'
 
-  # get '/users/sign_out' => 'devise/sessions#destroy'
+  get '/users/sign_out' => 'devise/sessions#destroy'
 
   get 'my_products', to: 'products#my_products'
-  get '/bookings/:id/accept', to: 'bookings#accept', as: 'accept_booking'
-  get '/bookings/:id/reject', to: 'bookings#reject', as: 'reject_booking'
 
-
-  devise_for :users
   resources :products do
-    resources :bookings, only: %i[new create destroy]
+    resources :bookings, only: %i[new create]
 
     collection do
       get :search
@@ -22,14 +18,14 @@ Rails.application.routes.draw do
       get :reviews
     end
 
-    resources :bookings, only: %i[new create destroy]
+    resources :bookings, only: [ :new, :create ]
   end
 
-  resources :bookings, except: %i[new index create] do
-    resources :reviews, only: %i[new create]
+  resources :bookings, except: [ :new, :index, :create ] do
+    resources :reviews, only: [ :new, :create ]
   end
 
-  resources :reviews, except: %i[new create]
+  resources :reviews, except: [ :new, :create ]
 
   get '/bookings', to: 'bookings#index'
 

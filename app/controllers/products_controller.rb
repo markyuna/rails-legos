@@ -4,7 +4,8 @@ class ProductsController < ApplicationController
   before_action :find_product, only: %i[show edit update destroy reviews]
 
   def index
-    @products = current_user.products.all
+    @products = Product.all
+    # @products = current_user.products.all
     # @products = policy_scope(Product)
 
       @markers = @products.geocoded.map do |product|
@@ -86,7 +87,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :address, :city, :start_date, :end_date, :capacity, :price, :photo)
+    params.require(:product).permit(:title, :description, :address, :city, :start_date, :end_date, :capacity, :price_per_day, :photo)
   end
 
   def find_product
