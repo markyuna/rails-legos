@@ -1,12 +1,12 @@
 <h1 class="text-center">Vos réservations</h1>
-<div class="py-5">
-  <div class="container">
-    <div class="row hidden-md-up">
+<div class="">
+  <div class="container ">
+    <div class="row grid gap-4">
       <% @bookings.each do |booking| %>
         <% product = Product.find(booking.product_id) %>
         <div class="col-md-4">
           <div class="card mb-2">
-            <div class="card-block p-3">
+            <div class="card-block p-3 ">
               <% if product.photo.key.present? %>
                 <%= cl_image_tag booking.product.photo.key, crop: :fill, class:"product_pic card-img-top" %>
               <% else %>
@@ -17,7 +17,7 @@
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= product.description %> people</small><br>
               <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
                 <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %>
-                <%= link_to 'Delete', booking, method: :delete, data: {confirm: "sure?"}, class: "btn btn-primary" %>
+                <%= link_to 'Annuler ma reservation', booking_path(booking), method: :delete, data: {confirm: "sure?"}, class: "btn btn-primary" %>
             </div>
           </div>
         </div>

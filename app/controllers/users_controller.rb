@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show]
 
   def show
-    @products = current_user.products.all
+    # @products = current_user.products.all
     @product = current_user.reviews.all
   end
 
