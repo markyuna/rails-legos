@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[product]
   before_action :find_user, :database_search
   before_action :find_product, only: %i[show edit update destroy reviews]
 
   def index
-    @products = Product.all
+    @products = current_user.products.all
     # @products = policy_scope(Product)
 
       @markers = @products.geocoded.map do |product|
@@ -17,7 +18,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @product = current_user.products.new
     # authorize @product
   end
 

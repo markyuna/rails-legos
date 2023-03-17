@@ -21,10 +21,10 @@
   font-size: 14px;
   margin-left: 0px;
 }
-.container {
-  max-width: 100%;
-  height: auto;
-}
+// .container {
+//   max-width: 100%;
+//   height: auto;
+// }
 
 .navbar {
   display: flex;
@@ -56,22 +56,22 @@
   }
 }
 
-.btn {
-  a:link, a:visited, a:hover {
-    color: $middle-gray;
-    text-decoration: none;
-  }
+// .btn {
+//   // a:link, a:visited, a:hover {
+//   //   color: $middle-gray;
+//   //   text-decoration: none;
+//   // }
 
-  a:hover {
-    color: white;
-    font-weight: bolder;
-    text-decoration: none;
-  }
+//   a:hover {
+//     color: white;
+//     font-weight: bolder;
+//     text-decoration: none;
+//   }
 
-  a.cancel {
-    color: $light-gray;
-  }
-}
+//   a.cancel {
+//     color: $light-gray;
+//   }
+// }
 
 .dropdown-menu, .dropdown-item {
   padding-right: 40px;

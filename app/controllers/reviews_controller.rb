@@ -4,7 +4,8 @@ class ReviewsController < ApplicationController
   before_action :find_review, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    reviews_all = policy_scope(Review)
+    @reviews = Review.all
+    # reviews_all = policy_scope(Review)
     @reviews = reviews_all.select do |review|
       booking = Booking.find(review.booking_id)
       booking.user_id == @user.id
@@ -19,7 +20,7 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.booking_id = @booking.id
-    authorize @review
+    # authorize @review
     @review.save
     if @review.save
       redirect_to review_path(@review)
