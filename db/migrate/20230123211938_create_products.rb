@@ -9,11 +9,9 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :city
       t.integer :capacity
       t.string :location
-      t.date :start_date
-      t.date :end_date
       t.float :latitude
       t.float :longitude
-      t.references :user, null: false, foreign_key: true
+      # t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

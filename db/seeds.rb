@@ -8,11 +8,6 @@ Product.destroy_all
 User.destroy_all
 puts 'database cleaned'
 
-# creating users
-puts 'creating user'
-user1 = User.create(email: 'marcos@gmail.com', password: 'esternoma', name: 'Marcos')
-puts 'user created'
-
 # creating legos
 
 lego_sets = [
@@ -21,91 +16,71 @@ lego_sets = [
     address: '47 rue berger 75001',
     city: 'Paris',
     capacity: 7541,
-    price_per_day: 4,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 14
+  },
   { title: 'Lego Tour Eiffel',
     description: 'La tour Eiffel',
     address: '5 Av. Anatole France 75007',
     city: 'Paris',
     capacity: 10001,
-    price_per_day: 5,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 10
+  },
   { title: 'Lego Pyramide',
     description: 'La grande pyramide de Gizeh',
     address: '16 rue du pont neuf 75001',
     city: 'Paris',
     capacity: 1476,
-    price_per_day: 2,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 12
+  },
   { title: 'Lego Maison',
     description: 'La maison en A',
     address: '9 rue mansart 75009',
     city: 'Paris',
     capacity: 3955,
-    price_per_day: 9,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 9
+  },
   { title: 'Lego Voiture',
     description: 'Lamborghini Sián FKP 37',
     address: '28 rue jean de la fontaine 75016',
     city: 'Paris',
     capacity: 3696,
-    price_per_day: 8,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 18
+  },
   { title: 'Lego Avion',
     description: "L'avion futuriste",
     address: '21 rue blondel 75002',
     city: 'Paris',
     capacity: 608,
-    price_per_day: 3,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 10
+  },
   { title: 'Lego train',
     description: "Le Poudlard Express",
     address: "59 bis rue jouffroy d'abbans 75017",
     city: 'Paris',
     capacity: 3750,
-    price_per_day: 9,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 9
+  },
   { title: 'Le stade Santiago',
     description: "Célèbre plus de 75 ans de matchs légendaires avec l'ensemble Le stade Santiago Bernabéu du Real Madrid",
     address: "3 Bd Michelet, 13008",
     city: 'Marseille',
     capacity: 5876,
-    price_per_day: 2,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 12
+  },
   { title: 'Le Taj Mahal',
     description: "Ce superbe modèle à construire et exposer du Taj Mahal est idéal pour les passionnés d’architecture, de voyages et d’histoire.",
     address: "1 Place François Mitterrand, 59777",
     city: 'Lille',
     capacity: 2022,
-    price_per_day: 4,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 },
+    price_per_day: 14
+  },
   { title: 'Le Colisée',
     description: "Ce superbe modèle à construire et exposer du Taj Mahal est idéal pour les passionnés d’architecture, de voyages et d’histoire.",
     address: "1 Place François Mitterrand, 59777",
     city: 'Tours',
     capacity: 9036,
-    price_per_day: 4,
-    start_date: Faker::Date.between(from: 2.days.ago, to: Date.today),
-    end_date: Faker::Date.between(from: 2.days.from_now, to: 30.days.from_now),
-    user: user1 }
+    price_per_day: 14
+  }
 ]
 
 lego_photos = ['star_wars.jpg', 'eiffel.jpg', 'pyramide.jpg', 'maison.jpg', 'voiture.jpg', 'avion.jpg', 'train.jpg', 'stade.jpg', 'mahal2.jpg', 'colise.jpg']

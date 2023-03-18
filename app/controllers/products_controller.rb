@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[product]
   before_action :find_user, :database_search
-  before_action :find_product, only: %i[show edit update destroy reviews]
+  before_action :find_product, only: %i[show edit create update destroy reviews]
 
   def index
-    @products = Product.all
-    # @products = current_user.products.all
+    # @products = Product.all
+    @products = current_user.products.all
     # @products = policy_scope(Product)
 
       @markers = @products.geocoded.map do |product|
@@ -19,13 +19,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = current_user.products.new
+    @product = Product.new
     # authorize @product
   end
 
   def create
     @product = Product.new(product_params)
-    @product.user_id = @user.id
+    # @product.user_id = @user.id
     # authorize @product
     if @product.save
       redirect_to product_path(@product)
@@ -87,7 +87,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :address, :city, :start_date, :end_date, :capacity, :price_per_day, :photo)
+    params.require(:product).permit(:title, :description, :address, :city, :capacity, :price_per_day, :photo)
   end
 
   def find_product
