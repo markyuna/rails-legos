@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
-  # belongs_to :user
+  belongs_to :user
 
   has_many :bookings
 
@@ -13,8 +13,8 @@ class Product < ApplicationRecord
   validates :address, presence: true
   validates :capacity, presence: true
   validates :title, presence: true
-  validates :description, presence: true
-  validates :city, presence: true
+  # validates :description, presence: true
+  # validates :city, presence: true
 
   include PgSearch::Model
   pg_search_scope :search_by_city_address,

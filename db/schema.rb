@@ -65,8 +65,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_213537) do
     t.string "location"
     t.float "latitude"
     t.float "longitude"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -95,5 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_23_213537) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "products"
   add_foreign_key "bookings", "users"
+  add_foreign_key "products", "users"
   add_foreign_key "reviews", "bookings"
 end

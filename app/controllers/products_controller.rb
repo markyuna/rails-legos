@@ -1,13 +1,17 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[product]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :find_user, :database_search
-  before_action :find_product, only: %i[show edit create update destroy reviews]
+  before_action :find_product, only: %i[show edit create update destroy]
 
   def index
-    # @products = Product.all
-    @products = current_user.products.all
+    @products = Product.all
+    # @products = current_user.products.all
     # @products = policy_scope(Product)
-
+    if params[:query].present?
+      @products = Product.search_by_city_and_address(params[:query])
+    else
+      @products = Product.all
+    end
       @markers = @products.geocoded.map do |product|
       {
         lat: product.latitude,
@@ -20,18 +24,27 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    # @product.user_id = @user.id
     # authorize @product
   end
 
   def create
     @product = Product.new(product_params)
-    # @product.user_id = @user.id
+    @product.user_id = @user.id
+    # @product = current_user.products.build(product_params)
     # authorize @product
     if @product.save
       redirect_to product_path(@product)
     else
       render :new
     end
+    # if @product.save
+    #   flash[:notice] = "Product successfully listed for sale!"
+    #   redirect_to @product
+    #  else
+    #   flash[:alert] = "Failed to list product for sale. Please try again."
+    #   render :new
+    # end
   end
 
   def show
@@ -44,7 +57,8 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-    redirect_to product_path(@product)
+    @booking = @product.bookings.find(params[:booking_id])
+    redirect_to @product
   end
 
   def destroy
@@ -54,6 +68,7 @@ class ProductsController < ApplicationController
 
   def my_products
     @products = current_user.products
+    @bookings = @products.map {|p| p.bookings}.flatten
     # authorize @products
   end
 
