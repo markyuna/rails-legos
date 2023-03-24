@@ -1,7 +1,7 @@
 <div class="containe">
-  <div class="text-center">
+  <div class="product-cards">
       <% if @product.photo.attached? %>
-          <%= cl_image_tag @product.photo.key, class: 'photo' %>
+          <%= cl_image_tag @product.photo.key, class: 'card-img-top my_product_image' %>
       <% end %>
       <h2 class="card-text"><%= @product.title %></h2><br>
       <p class="card-text"><%= @product.description %></p><br>
