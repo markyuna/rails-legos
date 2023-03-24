@@ -1,3 +1,4 @@
+@media only screen and (min-width: 576px) {
 .map-card {
   padding: 1em;
   a {
@@ -16,7 +17,6 @@
 }
 
 
-@media only screen and (min-width: 768px) {
   #map {
     height: 100vh;
     position: sticky;
@@ -29,4 +29,3 @@
     height: 50vh;
   }
 }
-
