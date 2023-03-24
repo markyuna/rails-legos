@@ -9,14 +9,14 @@ User.destroy_all
 
 # puts 'creating users'
 
-user_attributes = {
-  name: Faker::Internet.username,
-  email: Faker::Internet.email,
-  password: Faker::PhoneNumber.subscriber_number(length: 6)
-}
-users = User.create(user_attributes)
+# user_attributes = {
+#   name: Faker::Internet.username,
+#   email: Faker::Internet.email,
+#   password: Faker::PhoneNumber.subscriber_number(length: 6)
+# }
+# users = User.create(user_attributes)
 
-# users = User.create!(email: 'marcos@gmail.com', password: 'esternoma', name: 'Marcos')
+users = User.create!(email: 'marcos@gmail.com', password: 'esternoma', name: 'Marcos')
 
 puts 'database cleaned'
 

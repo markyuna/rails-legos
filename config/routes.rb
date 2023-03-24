@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :products, only: %i[destroy]
   root to: 'pages#home'
 
-  get '/users/sign_out' => 'devise/sessions#destroy'
+  # get '/users/sign_out' => 'devise/sessions#destroy'
 
   get 'my_products', to: 'products#my_products'
 

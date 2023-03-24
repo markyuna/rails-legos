@@ -44,7 +44,7 @@
           <a class="nav-link">CONTACT</a>
         </li>
       </ul>
-      <ul class="navbar-nav me-auto">
+      <ul class="navbar-nav me-auto link_list">
         <% if user_signed_in? %>
           <li class="nav-item dropdown menu">
             <%= image_tag "sign_in.png", class: "sign-in dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -58,8 +58,8 @@
             </div>
           </li>
           <% else %>
-            <li class="nav-item">
-              <%= link_to "CONNEXION", new_user_session_path, class:'nav-link' %>
+            <li class="nav-item dropdown">
+              <%= link_to "CONNEXION", new_user_session_path %>
             </li>
         <% end %>
       </ul>
