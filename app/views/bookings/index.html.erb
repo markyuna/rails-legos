@@ -5,19 +5,21 @@
       <% @bookings.each do |booking| %>
         <% product = Product.find(booking.product_id) %>
         <div class="col-md-4">
-          <div class="card mb-2">
-            <div class="card-block p-3 ">
+          <div class="card-category mb-2">
+            <div class="card-body p-3 ">
               <% if product.photo.key.present? %>
-                <%= cl_image_tag booking.product.photo.key, crop: :fill, class:"product_pic card-img-top" %>
+                <%= cl_image_tag booking.product.photo.key, crop: :fill, class:"product_pic" %>
               <% else %>
-                <%= image_tag("unknown.jpg", class:"product_pic card-img-top") %>
+                <%= image_tag("unknown.jpg", class:"product_pic") %>
               <% end %>
               <p class="card-title">City: <%= product.city %></p>
               <p class="card-subtitle text-muted"><span class="font-weight-bold">Total Price:</span> <%= booking.total_price %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= product.description %> people</small><br>
-              <%= link_to 'Check it out!', booking, class: "btn btn-primary" %> <br>
-                <%= link_to 'Edit', edit_booking_path(booking), class: "btn btn-primary" %>
-                <%= link_to 'Annuler ma reservation', booking_path(booking), method: :delete, data: {confirm: "sure?"}, class: "btn btn-primary" %>
+            </div>
+            <div class="d-flex justify-content-center link_list">
+              <%= link_to 'Voir', booking, class: "p-2" %> <br>
+              <%= link_to 'Edit', edit_booking_path(booking), class: "p-2" %>
+              <%= link_to 'Annuler', booking_path(booking), method: :delete, data: {confirm: "sure?"}, class: "p-2" %>
             </div>
           </div>
         </div>
