@@ -1,19 +1,21 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to root_path do %>
-  <%= image_tag 'Logo_Bric.png', class:"logo"%>
-  <% end %>
-  <%= form_with url: products_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control rounded-pill col-6 me-3",
-      placeholder: "Entrez une ville"
-    %>
-    <%= submit_tag "Le(t's) go", class: "btn btn-outline-primary rounded-pill col-4" %>
-  <% end %>
+    <%= image_tag 'Logo_Bric.png', class:"logo"%>
+    <% end %>
+    <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control rounded-pill col-6 me-3",
+        placeholder: "Entrez une ville"
+      %>
+      <%= submit_tag "Le(t's) go", class: "btn btn-outline-primary rounded-pill col-4" %>
+    <% end %>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto my-2 my-lg-0 link_list">
         <li class="nav-item">
@@ -44,8 +46,9 @@
       </ul>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <%= image_tag "sign_in.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown menu">
+            <%= image_tag "sign_in.png", class: "sign-in dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Profil - <%= current_user.name %></a>
               <%= link_to "Mes produits", my_products_path, class: "dropdown-item" %>
