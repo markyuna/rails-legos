@@ -24,7 +24,7 @@ puts 'database cleaned'
 
 lego_sets = [
   { title: 'Lego Star Wars',
-    description: 'Millennium Falcon',
+    description: 'Le compartiment principal contient des sièges, un poste d’ingénierie avec un siège miniature pivotant et une entrée avec passage.',
     address: '47 rue berger 75001',
     city: 'Paris',
     capacity: 7541,
@@ -32,7 +32,7 @@ lego_sets = [
     user: users
   },
   { title: 'Lego Tour Eiffel',
-    description: 'La tour Eiffel',
+    description: 'Une construction comparable à nulle autre – Préparez-vous à battre des records avec le set LEGO® La tour Eiffel pour adultes.',
     address: '5 Av. Anatole France 75007',
     city: 'Paris',
     capacity: 10001,
@@ -40,7 +40,7 @@ lego_sets = [
     user: users
   },
   { title: 'Lego Pyramide',
-    description: 'La grande pyramide de Gizeh',
+    description: 'Modèle en coupe – Soulevez la structure extérieure pour révéler le système sans doute utilisé pour déplacer les pierres lors de la construction.',
     address: '16 rue du pont neuf 75001',
     city: 'Paris',
     capacity: 1476,
@@ -48,7 +48,7 @@ lego_sets = [
     user: users
   },
   { title: 'Lego Maison',
-    description: 'La maison en A',
+    description: 'Un grand nombre de murs et d’éléments de ce modèle peuvent être réorganisés pour créer des scènes d’action différentes.',
     address: '9 rue mansart 75009',
     city: 'Paris',
     capacity: 3955,
@@ -56,15 +56,15 @@ lego_sets = [
     user: users
   },
   { title: 'Lego Voiture',
-    description: 'Lamborghini Sián FKP 37',
-    address: '28 rue jean de la fontaine 75016',
+    description: 'Avec 2 moteurs à rétrofriction, cette voiture est facile à contrôler. Il suffit de la faire reculer puis de la lâcher ',
+    address: '60 rue du roi de sicile 75004',
     city: 'Paris',
     capacity: 3696,
     price_per_day: 18,
     user: users
   },
   { title: 'Lego Avion',
-    description: "L'avion futuriste",
+    description: "Attache les éléments d'explosion de puissance aux mains de Super-Adaptoid puis pousse vers l'intérieur pour tirer !",
     address: '21 rue blondel 75002',
     city: 'Paris',
     capacity: 608,
@@ -72,7 +72,7 @@ lego_sets = [
     user: users
   },
   { title: 'Lego train',
-    description: "Le Poudlard Express",
+    description: "La locomotive, le tender à charbon et le wagon de voyageurs à 3 compartiments débordent de références au film.",
     address: "59 bis rue jouffroy d'abbans 75017",
     city: 'Paris',
     capacity: 3750,
@@ -81,31 +81,39 @@ lego_sets = [
   },
   { title: 'Le stade Santiago',
     description: "Célèbre plus de 75 ans de matchs légendaires avec l'ensemble Le stade Santiago Bernabéu du Real Madrid",
-    address: "3 Bd Michelet, 13008",
-    city: 'Marseille',
+    address: "51 rue riquet 75019",
+    city: 'Paris',
     capacity: 5876,
     price_per_day: 12,
     user: users
   },
   { title: 'Le Taj Mahal',
     description: "Ce superbe modèle à construire et exposer du Taj Mahal est idéal pour les passionnés d’architecture, de voyages et d’histoire.",
-    address: "1 Place François Mitterrand, 59777",
-    city: 'Lille',
+    address: "28 rue jean de la fontaine 75016",
+    city: 'Paris',
     capacity: 2022,
     price_per_day: 14,
     user: users
   },
   { title: 'Le Colisée',
-    description: "Ce superbe modèle à construire et exposer du Taj Mahal est idéal pour les passionnés d’architecture, de voyages et d’histoire.",
-    address: "1 Place François Mitterrand, 59777",
-    city: 'Tours',
+    description: "Le modèle en briques du monumental Colisée prend vie avec le kit LEGO® Le Colisée (10276), fascinante et enrichissante pour adultes.",
+    address: "16 rue des martyrs 75009",
+    city: 'Paris',
     capacity: 9036,
     price_per_day: 14,
+    user: users
+  },
+  { title: 'Le Titanic',
+    description: "Titanic avec cette maquette à l’échelle 1:200 du paquebot. Parmi ces détails, plus de 300 hublots, une grue de chargement et plus encore.",
+    address: "35 rue de la gare 75019",
+    city: 'Paris',
+    capacity: 2007,
+    price_per_day: 8,
     user: users
   }
 ]
 
-lego_photos = ['star_wars.jpg', 'eiffel.jpg', 'pyramide.jpg', 'maison.jpg', 'voiture.jpg', 'avion.jpg', 'train.jpg', 'stade.jpg', 'mahal2.jpg', 'colise.jpg']
+lego_photos = ['_star_wars.jpg', '_eiffel.jpg', '_pyramide.jpg', '_maison.jpg', '_voiture.jpg', '_avion.jpg', '_train.jpg', '_stade.jpg', '_mahal2.jpg', '_colise.jpg', '_Le Titanic.jpg']
 
 puts 'creating legos'
 
