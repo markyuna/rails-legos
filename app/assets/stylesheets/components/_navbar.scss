@@ -80,7 +80,6 @@
 li {
   list-style-type: none;
 }
-}
 
 .link_list {
   font-size: 25px;
@@ -106,21 +105,4 @@ li {
   }
 }
 
-#home_button_1 {
-  font-family: serif;
-  font-size: 28px;
-  color: $gray;
-}
-
-#home_button_1:hover {
-  color: $middle-gray;
-}
-
-#home_button_2 {
-  font-family: Seaweed Script;
-  color: $sand;
-}
-
-#home_button_2:hover {
-  color: $sand-hover;
 }

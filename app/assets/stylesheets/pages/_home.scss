@@ -1,28 +1,185 @@
 // Specific CSS for your home-page
-h1, h3 {
-  margin: 32px 0 24px 0;
+h3 {
+  margin: 32px 0 34px 0;
   text-align: center;
-  color: $sand;
+  color:#1C2833;
 }
 
-.et_pb_section {
+// body {
+// 	font-family: "Alumni Sans", sans-serif;
+// 	font-size: 16px;
+// }
+
+// section {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	align-items: center;
+// 	min-height: 50vh;
+// 	font-size: 2em;
+//   background-image: radial-gradient(circle at top left,rgba(255,255,255,0.89) 30%,rgba(255,255,255,0) 80%),url(https://www.shareloc36.com/wp-content/uploads/2021/04/lego-background-scaled.jpg)!important;
+// 	background-size: cover;
+//   background-position: center;
+//   color: #fff;
+// 	text-transform: uppercase;
+// 	gap: 10px;
+// }
+
+* {
   position: relative;
-  background-color: #fff;
-  height: 500px;
-  background-size: cover;
-  background-position: center;
+  box-sizing: border-box;
 }
 
-div.et_pb_section.et_pb_section_0 {
-  background-image: radial-gradient(circle at top left,rgba(255,255,255,0.89) 30%,rgba(255,255,255,0) 80%),url(https://www.shareloc36.com/wp-content/uploads/2021/04/lego-background-scaled.jpg)!important;
+.iframely-embed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: white;
 }
 
-.et_pb_section_0.et_pb_section {
-  padding-top: 12vw;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
+#app {
+  // opacity: 0 !important;
+  // visibility: hidden;
+  z-index: 100;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
+
+#app {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  padding-bottom: 4vmin;
+  height: 90vh;
+  width: 100%;
+  background: white;
+  color: #3a3535;
+}
+
+// body {
+//   display: grid;
+//   padding: 3vmin;
+//   background: #e6ded7;
+// }
+
+.title {
+  padding-left: 1em;
+  grid-column: 1 / -1;
+  grid-row: 1;
+
+  font-family: "Prata", serif;
+  font-size: 8vw;
+  width: 100%;
+  z-index: 2;
+
+  // start
+
+  > .title-inner {
+    display: inline-block;
+  }
+}
+
+@keyframes text-clip {
+  from {
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes outer-left {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes inner-left {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.cafe,
+.mozart {
+  animation: outer-left 1s 1s cubic-bezier(0.5, 0, 0.1, 1) both;
+  // outline: 1px solid red;
+}
+
+// [class*='inner'] {
+//   outline: 1px solid blue;
+// }
+
+.title-inner {
+  display: inline-block;
+  animation: inner-left 1s 1s ease both;
+}
+
+.cafe-inner {
+  display: inline-block;
+  animation: inner-left 1s 1s ease both,
+    text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.mozart-inner {
+  animation: text-clip 1s 0s cubic-bezier(0.5, 0, 0.1, 1) both;
+}
+
+.title {
+  animation: outer-left 1s 1s ease both;
+}
+
+.cafe {
+  // start
+  > .cafe-inner {
+    display: inline-block;
+  }
+}
+
+.mozart {
+  display: inline-block;
+}
+
+.image {
+  grid-row: 1;
+  grid-column: 2;
+  margin-left: -2rem;
+  opacity: 0.7;
+
+  animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
+
+  @keyframes image-in {
+    from {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    to {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+// Replay animation!
+body:active * {
+  animation: none !important;
+}
+
 
 
 #banner_image, .calendar {
@@ -44,20 +201,21 @@ div.et_pb_section.et_pb_section_0 {
 
 .container {
   hr {
-  margin: 12px auto;
-  border: none;
-  border-top: 1px solid $sand;
-  color: $sand;
-  width: 100%;
+    margin: 12px auto;
+    border: none;
+    border-top: 1px solid #1C2833;
+    color: #1C2833;
+    width: 100%;
   }
 }
 
-.row {
-  width: 100%;
-  max-width: 1080px;
-  margin: auto;
-  position: relative;
-}
+
+// .row {
+//   p {
+//     font-size: 12px;
+//     color: $gray;
+//   }
+// }
 
 .top_rated_preview {
   margin-top: 18px;
@@ -68,6 +226,7 @@ div.et_pb_section.et_pb_section_0 {
   display: flex;
   align-items: center;
 }
+
 
 @media (min-width: 564px) and (max-width: 950px) {
   .daterangepicker {
@@ -80,6 +239,7 @@ div.et_pb_section.et_pb_section_0 {
     width: auto;
   }
 }
+
 
 .carousel-control-next, .carousel-control-prev {
     filter: invert(100%);
