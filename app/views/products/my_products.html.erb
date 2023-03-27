@@ -1,36 +1,38 @@
-<h1>My products</h1>
-<%# <div class="shadow shadow-container "> %>
-  <div class="card-wrapper">
-    <div class="my_products_container p-4">
-      <div class="widget-list row row-cols-3">
-        <% unless current_user.products.nil? %>
-          <% @products.each do |product|%>
-            <div class="shadow card mb-3 widget">
-              <div class="card-header bg-transparent " >
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                  <%= link_to product.title, product_path(product) %>
-                  </li>
-                  <li class="list-inline-item">
-                  <%= button_to'╳', product_path(product), method: :delete, data: {turbo_method: :delete}, class:"button" %>
-                  </li>
-                </ul>
-              </div>
-                <div class="card-body">
-                  <% if product.photo.key.present? %>
-                  <%= cl_image_tag(product.photo.key, class:"") %>
-                  <% else %>
-                    <%= image_tag("unknown.jpg", class:"") %>
-                  <% end %>
-                  <p><%= product.address %></p>
-                </div>
-              <div class="card-footer bg-transparent">
-                <%= link_to 'Modifier le produit', edit_product_path(product), class:"" %>
-              </div>
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+   <h1 class="display-1">Mes produits</h1>
+  </div>
+</div>
+<div class="card-wrapper">
+  <div class="my_products_container p-4">
+    <div class="widget-list row row-cols-3">
+      <% unless current_user.products.nil? %>
+        <% @products.each do |product|%>
+          <div class="shadow card mb-3 widget">
+            <div class="card-header bg-transparent " >
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                <%= link_to product.title, product_path(product) %>
+                </li>
+                <li class="list-inline-item">
+                <%= button_to'╳', product_path(product), method: :delete, data: {turbo_method: :delete}, class:"button" %>
+                </li>
+              </ul>
             </div>
-          <% end %>
+              <div class="card-body">
+                <% if product.photo.key.present? %>
+                <%= cl_image_tag(product.photo.key, class:"") %>
+                <% else %>
+                  <%= image_tag("unknown.jpg", class:"") %>
+                <% end %>
+                <p><%= product.address %></p>
+              </div>
+            <div class="card-footer bg-transparent">
+              <%= link_to 'Modifier le produit', edit_product_path(product), class:"" %>
+            </div>
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-<%# </div> %>
+</div>

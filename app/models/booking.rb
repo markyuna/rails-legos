@@ -8,11 +8,11 @@ class Booking < ApplicationRecord
   validates :first_day_of_booking, presence: true
   validates :last_day_of_booking, presence: true
 
-  # before_save :calculate_total_price
+  before_save :calculate_total_price
 
-  # private
+  private
 
-  # def calculate_total_price
-  #   self.total_price = (end_date - start_date).to_i * product.price
-  # end
+  def calculate_total_price
+    self.total_price = (last_day_of_booking - first_day_of_booking).to_i * product.price_per_day
+  end
 end

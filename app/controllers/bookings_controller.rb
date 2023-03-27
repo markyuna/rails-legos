@@ -1,14 +1,12 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-
   before_action :set_user
   before_action :set_booking, only: %i[show edit update destroy]
-  before_action :set_product, only: %i[new create destroy]
+  before_action :set_product, only: %i[new create update]
 
   def index
-    @bookings = Booking.all
     @my_bookings = Booking.where(user_id: current_user.id)
-    # @my_products_booked = current_user.products.map(&:bookings).flatten
+    @my_products_booked = current_user.products.map(&:bookings).flatten
   end
 
   def new
@@ -19,26 +17,11 @@ class BookingsController < ApplicationController
     @total_price = (@booking.last_day_of_booking - @booking.first_day_of_booking).to_i * @booking.product.price_per_day
   end
 
-  # def create
-  #   @booking = Booking.new(booking_params)
-  #   @booking.user_id = @user.id
-  #   @booking.product_id = @product.id
-  #   @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price_per_day
-  #   # authorize @booking
-  #   if @booking.save
-  #     redirect_to booking_path(@booking)
-  #   else
-  #     render :new
-  #   end
-  # end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.user_id = @user.id
     @booking.product_id = @product.id
-    # @booking.total_price = total_price(@booking, @product)
-    @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price_per_day
-    # authorize @booking
+    @booking.total_price = total_price(@booking, @product)
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -49,23 +32,10 @@ class BookingsController < ApplicationController
   def edit
   end
 
-  # def update
-  #   @booking.update(booking_params)
-  #   @booking.total_price = total_price(booking_params[:first_day_of_booking], booking_params[:last_day_of_booking], @product.price_per_day)
-  #   if @booking.save
-  #     redirect_to booking_path(@product, @booking), notice: "Réservation modifiée"
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def update
-    new_id = @booking.product_id
-    @product = Product.find(new_id)
     @booking.update(booking_params)
+    @product = Product.find(@booking.product_id)
     @booking.total_price = total_price(@booking, @product)
-    # @booking.total_price = ((@booking.end_date - @booking.start_date).to_i) * @product.price
-    # authorize @booking
     if @booking.save
       redirect_to booking_path(@product, @booking)
     else
@@ -74,9 +44,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
-    redirect_to bookings_path
+    redirect_to product_booking_path(@product, @booking), method: :delete, data: {confirm: "sure?"}, class: "p-2"
+
   end
 
   private
@@ -85,9 +55,9 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:first_day_of_booking, :last_day_of_booking, :total_price)
   end
 
-  # def total_price(booking, product)
-  #   (((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price_per_day)/7
-  # end
+  def total_price(booking, product)
+    (booking.last_day_of_booking - booking.first_day_of_booking).to_i * product.price_per_day
+  end
 
   def set_product
     @product = Product.find(params[:product_id])
@@ -100,11 +70,4 @@ class BookingsController < ApplicationController
   def set_user
     @user = current_user
   end
-
-  # def total_price(first_day_of_booking, last_day_of_booking, price_per_day)
-  #   total_days = (last_day_of_booking.to_date - first_day_of_booking.to_date).to_i
-  #   total_price = total_days * price_per_day
-  #   return total_price / 7
-  # end
-
 end

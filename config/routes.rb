@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get :reviews
     end
 
-    resources :bookings, only: [ :new, :create, :destroy]
+    resources :bookings, only: %i[new create destroy]
   end
 
   resources :bookings, except: [ :new, :index, :create ] do
@@ -31,5 +31,5 @@ Rails.application.routes.draw do
 
   get '/error', to: 'errors#not_found'
 
-  get "*path", to: redirect("/error")
+  # get "*path", to: redirect("/error")
 end

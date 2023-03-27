@@ -35,8 +35,8 @@ lego_sets = [
     description: 'Une construction comparable à nulle autre – Préparez-vous à battre des records avec le set LEGO® La tour Eiffel pour adultes.',
     address: '5 Av. Anatole France 75007',
     city: 'Paris',
-    capacity: 10001,
-    price_per_day: 10,
+    capacity: 1001,
+    price_per_day: 5,
     user: users
   },
   { title: 'Lego Pyramide',
@@ -44,7 +44,7 @@ lego_sets = [
     address: '16 rue du pont neuf 75001',
     city: 'Paris',
     capacity: 1476,
-    price_per_day: 12,
+    price_per_day: 7,
     user: users
   },
   { title: 'Lego Maison',
@@ -60,7 +60,7 @@ lego_sets = [
     address: '60 rue du roi de sicile 75004',
     city: 'Paris',
     capacity: 3696,
-    price_per_day: 18,
+    price_per_day: 8,
     user: users
   },
   { title: 'Lego Avion',
@@ -68,7 +68,7 @@ lego_sets = [
     address: '21 rue blondel 75002',
     city: 'Paris',
     capacity: 608,
-    price_per_day: 10,
+    price_per_day: 5,
     user: users
   },
   { title: 'Lego train',
@@ -84,7 +84,7 @@ lego_sets = [
     address: "51 rue riquet 75019",
     city: 'Paris',
     capacity: 5876,
-    price_per_day: 12,
+    price_per_day: 2,
     user: users
   },
   { title: 'Le Taj Mahal',
@@ -92,7 +92,7 @@ lego_sets = [
     address: "28 rue jean de la fontaine 75016",
     city: 'Paris',
     capacity: 2022,
-    price_per_day: 14,
+    price_per_day: 4,
     user: users
   },
   { title: 'Le Colisée',
@@ -100,7 +100,7 @@ lego_sets = [
     address: "16 rue des martyrs 75009",
     city: 'Paris',
     capacity: 9036,
-    price_per_day: 14,
+    price_per_day: 4,
     user: users
   },
   { title: 'Le Titanic',
