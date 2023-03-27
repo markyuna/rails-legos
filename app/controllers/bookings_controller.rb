@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
     @my_bookings = Booking.where(user_id: current_user.id)
-    @my_products_booked = current_user.products.map(&:bookings).flatten
+    # @my_products_booked = current_user.products.map(&:bookings).flatten
   end
 
   def new
