@@ -5,26 +5,6 @@ h3 {
   color:#1C2833;
 }
 
-// body {
-// 	font-family: "Alumni Sans", sans-serif;
-// 	font-size: 16px;
-// }
-
-// section {
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: center;
-// 	align-items: center;
-// 	min-height: 50vh;
-// 	font-size: 2em;
-//   background-image: radial-gradient(circle at top left,rgba(255,255,255,0.89) 30%,rgba(255,255,255,0) 80%),url(https://www.shareloc36.com/wp-content/uploads/2021/04/lego-background-scaled.jpg)!important;
-// 	background-size: cover;
-//   background-position: center;
-//   color: #fff;
-// 	text-transform: uppercase;
-// 	gap: 10px;
-// }
-
 * {
   position: relative;
   box-sizing: border-box;
@@ -45,9 +25,9 @@ h3 {
   // visibility: hidden;
   z-index: 100;
 
-  &:hover {
-    opacity: 0.5;
-  }
+  // &:hover {
+  //   opacity: 0.5;
+  // }
 }
 
 #app {
@@ -55,7 +35,7 @@ h3 {
   grid-template-columns: 1fr 2fr;
   align-items: center;
   padding-bottom: 4vmin;
-  height: 90vh;
+  height: 105vh;
   width: 100%;
   background: white;
   color: #3a3535;
@@ -72,7 +52,7 @@ h3 {
   grid-column: 1 / -1;
   grid-row: 1;
 
-  font-family: "Prata", serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 8vw;
   width: 100%;
   z-index: 2;
@@ -156,7 +136,6 @@ h3 {
   grid-column: 2;
   margin-left: -2rem;
   opacity: 0.7;
-
   animation: image-in 1s cubic-bezier(0.5, 0, 0.1, 1) 2s backwards;
 
   @keyframes image-in {
