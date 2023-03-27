@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'my_products', to: 'products#my_products'
 
   resources :products do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create destroy]
 
     collection do
       get :search
@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       get :reviews
     end
 
-    resources :bookings, only: [ :new, :create ]
+    resources :bookings, only: [ :new, :create, :destroy]
   end
 
   resources :bookings, except: [ :new, :index, :create ] do
