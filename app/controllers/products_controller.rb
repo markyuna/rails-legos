@@ -31,20 +31,20 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = @user.id
-    # @product = current_user.products.build(product_params)
+    @product = current_user.products.build(product_params)
     # authorize @product
-    if @product.save
-      redirect_to product_path(@product)
-    else
-      render :new
-    end
     # if @product.save
-    #   flash[:notice] = "Product successfully listed for sale!"
-    #   redirect_to @product
-    #  else
-    #   flash[:alert] = "Failed to list product for sale. Please try again."
+    #   redirect_to product_path(@product)
+    # else
     #   render :new
     # end
+    if @product.save
+      flash[:notice] = "Product successfully listed for sale!"
+      redirect_to @product
+     else
+      flash[:alert] = "Failed to list product for sale. Please try again."
+      render :new
+    end
   end
 
   def show

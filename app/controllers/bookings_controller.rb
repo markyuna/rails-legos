@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
     @product = Product.find(@booking.product_id)
     @booking.total_price = total_price(@booking, @product)
     if @booking.save
-      redirect_to booking_path(@product, @booking)
+      redirect_to booking_path(@booking)   
     else
       render :edit
     end

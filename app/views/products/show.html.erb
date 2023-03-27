@@ -1,6 +1,6 @@
 <div class="cover mb-4 d-flex align-items-center justify-content-center">
   <div class="text-center text-white">
-   <h1 class="display-1"><%= @product.title %></h1>
+   <h1 class="display-1 "><%= @product.title %></h1>
   </div>
 </div>
 <div class="container">
@@ -13,33 +13,17 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h2 class="card-title"><%= @product.title %></h2><br>
-        <p class="card-text"><%= @product.description %></p><br>
-        <p class="card-text"><%= @product.price_per_day %>€/jour </p>
+        <h1 class="title-inner"><%= @product.title %></h1><br>
+        <p class="card-content"><%= @product.description %></p><br>
+        <p class="card-content"><%= @product.price_per_day %>€/jour </p>
       </div>
     </div>
   </div>
 </div>
-<div class="text-decoration-none">
-    <%= link_to "Louer", "/products/#{params[:id]}/bookings/new", class: "btn btn-outline-primary" %>
-    <%= link_to "Retour aux produits", products_path, class: "btn btn-outline-primary" %>
-</div>
-
-  <div class="product-cards">
-      <% if @product.photo.attached? %>
-          <%= cl_image_tag @product.photo.key, class: 'card-img-top my_product_image' %>
-      <% end %>
-      <h2 class="card-text"><%= @product.title %></h2><br>
-      <p class="card-text"><%= @product.description %></p><br>
-      <p class="card-text"><%= @product.price_per_day %>€/jour </p>
-      <br>
-  </div>
-  <div class="text-decoration-none">
+<div class="text-decoration-none text-center">
     <%= link_to "Louer", "/products/#{params[:id]}/bookings/new", class: "btn btn-outline-primary" %>
     <%= link_to "Retour aux produits", products_path, class: "btn btn-outline-primary" %>
 </div>
 </div>
-<br>
-<br>
 <br>
 <br>
