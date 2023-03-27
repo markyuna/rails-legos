@@ -28,7 +28,7 @@ lego_sets = [
     address: '47 rue berger 75001',
     city: 'Paris',
     capacity: 7541,
-    price_per_day: 14,
+    price_per_day: 4,
     user: users
   },
   { title: 'Lego Tour Eiffel',
@@ -108,7 +108,7 @@ lego_sets = [
     address: "35 rue de la gare 75019",
     city: 'Paris',
     capacity: 2007,
-    price_per_day: 8,
+    price_per_day: 6,
     user: users
   }
 ]
