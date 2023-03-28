@@ -15,8 +15,8 @@
 
 working
 .root-image {
-  width: 300px;
-  height: 200px;
+  width: 200px;
+  height: 100px;
   object-fit: cover;
 }
 
@@ -26,22 +26,22 @@ working
 }
 
 .my-product-image {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
   object-fit: cover;
 
 }
 
 // not working
 .show-image {
-  width: 500px;
-  height: 400px;
+  width: 400px;
+  height: 300px;
   object-fit: cover;
 }
 
 
 // not working
 .review-image {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
