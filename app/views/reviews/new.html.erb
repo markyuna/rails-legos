@@ -4,12 +4,12 @@
   </div>
 </div>
 
-<% @product = Product.find(@booking.product_id) %>
-<h1>How was your stay at <strong class="text-muted"><%= @product.address %></strong>?</h1>
 <div class="container">
+<% @product = Product.find(@booking.product_id) %>
+<h1 class="text-center">Comment s'est passé votre location à <strong><%= @product.address %></strong>?</h1>
   <%= simple_form_for [ @booking, @review ] do |f| %>
-    <%= f.input :rating, collection: [1, 2, 3, 4, 5] %>
-    <%= f.input :content, hint: "Tell us more about your experience in #{@product.address}" %>
+    <%= f.input :rating, required: false, collection: [1, 2, 3, 4, 5] %>
+    <%= f.input :content, required: false, label: 'Contenu', required: false, hint: "Parlez-nous de votre expérience en #{@product.address}" %>
     <%= f.submit "Ajouter", class: "btn btn-primary" %>
   <% end %>
 </div>

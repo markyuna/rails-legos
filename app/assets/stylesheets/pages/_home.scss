@@ -159,8 +159,6 @@ body:active * {
   animation: none !important;
 }
 
-
-
 #banner_image, .calendar {
   border-style: solid;
   border-color: $light-gray;
@@ -207,11 +205,6 @@ body:active * {
 }
 
 
-@media (min-width: 564px) and (max-width: 950px) {
-  .daterangepicker {
-    width: 278px !important;
-  }
-}
 
 @media (min-width: 950px) {
   .daterangepicker {
@@ -220,20 +213,25 @@ body:active * {
 }
 
 
-.carousel-control-next, .carousel-control-prev {
+@media screen and (min-width: 400px) {
+  .daterangepicker {
+    width: 278px !important;
+  }
+  .carousel-control-next, .carousel-control-prev {
     filter: invert(100%);
-}
+  }
 
-.carousel-indicators {
-  filter: invert(100%);
-}
+  .carousel-indicators {
+    filter: invert(100%);
+  }
 
-.carousel-control-prev {
-  left: -5%;
-}
+  .carousel-control-prev {
+    left: -5%;
+  }
 
-.carousel-control-next {
-  left: 90%;
+  .carousel-control-next {
+    left: 90%;
+  }
 }
 
 

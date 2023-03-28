@@ -9,7 +9,7 @@
 <div class="container">
   <div class="d-flex justify-content-around align-items-center">
     <h1>Your <strong class="text-muted"><%= @product.title %></strong> review</h1>
-    <%= link_to "Back to your stay", booking_path(@booking), class: "btn btn-primary btn-sm" %>
+
   </div>
   <div class="review-card d-flex row justify-content-around">
     <div class="col-5">
@@ -55,10 +55,8 @@
 
       <div>
         <%= link_to "Edit", edit_review_path(@review), class: "btn btn-primary btn-sm" %>
-        <%= link_to "Delete",
-        review_path(@review),
-        method: :delete,
-        data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
+        <%= link_to "Dlete", review_path(@review), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary btn-sm" %>
+        <%= link_to "Retour sur votre reservation", booking_path(@booking), class: "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>
