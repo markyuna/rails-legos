@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
   before_action :find_user, :database_search
-  before_action :find_product, only: %i[show edit create update destroy]
+  before_action :find_product, only: %i[show edit update destroy reviews]
 
   def index
     @products = Product.all
@@ -58,7 +58,7 @@ class ProductsController < ApplicationController
   def update
     @product.update(product_params)
     @booking = @product.bookings.find(params[:booking_id])
-    redirect_to @product
+    redirect_to product_path(@product)
   end
 
   def destroy

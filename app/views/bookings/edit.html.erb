@@ -8,10 +8,12 @@
     <div class="row">
       <%= simple_form_for [@booking] do |f| %>
       <div class="col-md-auto">
-        <%= f.input :first_day_of_booking, label: 'Date de début souhaitée', as: :date, html5: true, order: [:day, :month, :year]  %>
+        <%= f.input :first_day_of_booking, label: 'Date de début souhaitée', as: :date, html5: true, order: [:day, :month, :year],
+                required: false  %>
       </div>
       <div class="col-md-auto">
-        <%= f.input :last_day_of_booking, label: 'Date de fin souhaitée', as: :date, html5: true,order: [:day, :month, :year] %>
+        <%= f.input :last_day_of_booking, label: 'Date de fin souhaitée', as: :date, html5: true,order: [:day, :month, :year],
+                required: false %>
       </div>
       <div class="col text-center mt-5">
         <%= f.submit "Mettre à jour", class: "btn btn-success" %>
