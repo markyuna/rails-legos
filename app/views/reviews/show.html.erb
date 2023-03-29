@@ -12,14 +12,14 @@
 
   </div>
   <div class="review-card d-flex row justify-content-around">
-    <div class="col-5">
+    <div class="col-5 d-flex justify-content-around">
       <% if @product.photo.key.nil? %>
         <%= image_tag "no-image.png", class:"review-image" %>
       <% else %>
         <%= cl_image_tag @product.photo.key, class:"review-image" %>
       <% end %>
     </div>
-    <div class="col-5">
+    <div class="col-5 ">
       <div class="star-rating my-3">
         <p>Rating:</p>
         <% if @review.rating == 5 %>

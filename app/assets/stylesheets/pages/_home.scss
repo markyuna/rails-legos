@@ -41,11 +41,11 @@ h3 {
   color: #3a3535;
 }
 
-// body {
-//   display: grid;
-//   padding: 3vmin;
-//   background: #e6ded7;
-// }
+body {
+  display: grid;
+  // padding: 3vmin;
+  background: #8a99a8;
+}
 
 .title {
   padding-left: 1em;
@@ -189,7 +189,7 @@ body:active * {
 
 .row {
   p {
-    font-size: 22px;
+    font-size: 26px;
     color: $gray;
   }
 }
