@@ -7,12 +7,12 @@
 <div class="container">
   <div class="rental_form">
     <%= simple_form_for [ @product ] do |f| %>
-      <%= f.input :title %>
+      <%= f.input :title, required: false %>
       <%= f.input :description %>
-      <%= f.input :price_per_day %>
+      <%= f.input :price_per_day, required: false %>
       <%= f.input :city %>
-      <%= f.input :address %>
-      <%= f.input :capacity %>
+      <%= f.input :address, required: false %>
+      <%= f.input :capacity, required: false %>
       <%= f.input :photo, as: :file %>
       <%= f.submit "Ajouter produits", class: "btn btn-outline-primary" %>
     <% end %>

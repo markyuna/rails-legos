@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="row">
-    <div class="col-sm-12 col-md-6">
-      <%= link_to root_path do %>
-      <%= image_tag 'Logo_Bric2.png', class:"logo"%>
-      <% end %>
-    </div>
+      <div class="col-sm-4">
+        <%= link_to root_path do %>
+        <%= image_tag 'Logo_Bric2.png', class:"logo"%>
+        <% end %>
+      </div>
+      <div class="col-sm-8 d-flex align-items-center">
+        <h2 class="fw-bold">LEGO BRIC</h2>
+      </div>
   </div>
     <%# <%= form_with url: products_path, method: :get, class: "d-flex" do %>
       <%#= text_field_tag :query,

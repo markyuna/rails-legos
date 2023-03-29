@@ -10,12 +10,12 @@
   <p class="text-center">Description : <%= @product.description %>
     <div class="row">
       <%= simple_form_for [ @product, @booking ] do |f| %>
-        <%= f.input  :first_day_of_booking, label: 'Date de début souhaitée' %>
-        <%= f.input :last_day_of_booking, label: 'Date de fin souhaitée'  %>
+        <%= f.input  :first_day_of_booking, required: false, label: 'Date de début souhaitée' %>
+        <%= f.input :last_day_of_booking, required: false, label: 'Date de fin souhaitée'  %>
         <div class="text-center">
-          <%= f.submit "Book!", class: "btn btn-primary w-50" %><br>
-          <%= link_to "Back to All products", products_path, class: "btn btn-primary"  %>
-          <%= link_to "Back to your Booking", bookings_path(@booking), class: "btn btn-primary"  %>
+          <%= f.submit "Louer le produit", class: "btn btn-primary w-50" %><br>
+          <%= link_to "Retour à tous les produits", products_path, class: "btn btn-primary"  %>
+          <%= link_to "Retour à vos réservations", bookings_path(@booking), class: "btn btn-primary"  %>
         </div>
       <% end %>
     </div>

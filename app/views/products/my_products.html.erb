@@ -4,8 +4,8 @@
   </div>
 </div>
 <div class="card-wrapper">
-  <div class="my_products_container p-4">
-    <div class="widget-list row row-cols-3">
+  <div class="my_products_container">
+    <div class="widget-list row row-cols-3 p-4">
       <% unless current_user.products.nil? %>
         <% @products.each do |product|%>
           <div class="shadow card mb-3 widget">
@@ -34,5 +34,10 @@
         <% end %>
       <% end %>
     </div>
+  <div class="row">
+    <div class="container text-center">
+      <%= link_to "Retour à tous les produits !", products_path, class:"btn btn-outline-primary" %>
+    </div>
+  </div>
   </div>
 </div>

@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     @booking.total_price = ((@booking.last_day_of_booking - @booking.first_day_of_booking).to_i) * @product.price_per_day
     # authorize @booking
     if @booking.save
-      redirect_to booking_path(@product, @booking)
+      redirect_to booking_path
     else
       render :edit
     end
@@ -48,8 +48,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to booking_path(@product, @booking)
-
+    redirect_to booking_path
   end
 
   private

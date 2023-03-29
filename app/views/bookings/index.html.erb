@@ -12,20 +12,29 @@
     <div class="box d-flex flex-column">
     <h2>En cours</h2>
     <% @my_bookings.each do |booking| %>
-        <div class="d-flex flex-column card">
-          <%= booking.product.title %>
-          <%= booking.product.price_per_day %>€/jours
-        </div>
-      <% end %>
+      <div class="d-flex flex-column card">
+        <%= booking.product.title %>
+        <%= booking.product.price_per_day %>€/jours
+      </div>
+    <% end %>
   <% end %>
-
-    <div class="row hidden-md-up">
+  <div class="card-wrapper">
+    <div class="widget-list row hidden-md-up">
       <% @my_bookings.each do |booking| %>
         <% product = Product.find(booking.product_id) %>
-        <div class="col-md-4">
-          <div class="card-large mb-2">
-            <div class="card-block p-3">
-              <% if product.photo.key.present? %>
+        <div class="shadow card col-md-4 widget">
+          <div class="card-header bg-transparent " >
+            <ul class="list-inline">
+              <li class="list-inline-item">
+              <%= link_to product.title, product_path(product) %>
+              </li>
+              <li class="list-inline-item">
+              <%= button_to'╳', booking, method: :delete, data: {turbo_method: :delete}, class:"button" %>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <% if product.photo.key.present? %>
                 <%= cl_image_tag booking.product.photo.key, crop: :fill, class:"product_pic card-img-top" %>
               <% else %>
                 <%= image_tag("unknown.jpg", class:"product_pic card-img-top") %>
@@ -33,25 +42,20 @@
               <p class="card-title">Ville: <%= product.city %></p>
               <p class="card-subtitle text-muted"><span class="font-weight-bold">Prix ​​total:</span> <%= booking.total_price %> Euros</p>
               <small class="card-text p-y-1"><span class="font-weight-bold">Description:</span> <%= product.description %></small><br>
-
-              <div class="d-flex justify-content-center link_list">
-                <%= link_to 'Voir', booking, class: "p-2" %> <br>
-                <%= link_to 'Edit', edit_booking_path(booking), class: "p-2" %>
-                <%= link_to 'Annuler', booking, method: :delete, data: {confirm: "sure?"}, class: "p-2" %>
-              </div>
-            </div>
+          </div>
+          <div class="card-footer bg-transparent d-flex justify-content-center link_list">
+            <%= link_to 'Voir', booking, class: "p-2" %> <br>
+            <%= link_to 'Edit', edit_booking_path(booking), class: "p-2" %>
           </div>
         </div>
       <% end %>
-
-
-
-    </div>
-    <div class="row">
-      <div class="container text-center">
-        <%= link_to "Retour à tous les produits !", products_path, class:"btn btn-outline-primary" %>
-        <%= link_to 'Tous vos avis', reviews_path, class: "btn btn-outline-primary" %>
       </div>
     </div>
+      <div class="row">
+        <div class="container text-center">
+          <%= link_to "Retour à tous les produits !", products_path, class:"btn btn-outline-primary" %>
+          <%= link_to 'Tous vos avis', reviews_path, class: "btn btn-outline-primary" %>
+        </div>
+      </div>
   </div>
 </div>
