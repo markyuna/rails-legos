@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
       {
         lat: product.latitude,
         lng: product.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { product: product }),
+        info_window_html: render_to_string(partial: "info_window", locals: { product: product }),
         marker_html: render_to_string(partial: "marker", locals: {product: product})
       }
     end
