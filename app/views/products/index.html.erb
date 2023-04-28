@@ -11,24 +11,24 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-    <div class="widget-list row row-cols-3">
-  <div class="product-cards p-4">
-    <% @products.each do |product| %>
-      <div class="shadow card mb-3 widget">
-        <div class="card-block p-3">
-          <div class="card-body">
-            <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, class: 'card-img-top index-image' %>
-            <% else %>
-            <%= image_tag("unknown.jpg", class:"card-img-top my_product_image index-image") %>
-            <% end %>
-            <h5 class="card-title text-center"><%= link_to product.title, product_path(product) %></h5>
-            <p class="card-text"><%= product.price_per_day %> €/ jour</p>
-            <%= link_to "Voir le produit", product, class: "rounded-pill btn btn-outline-warning" %>
+  <div class="widget-list row row-cols-3">
+    <div class="product-cards p-4">
+      <% @products.each do |product| %>
+        <div class="shadow card mb-3 widget">
+          <div class="card-block p-3">
+            <div class="card-body">
+              <% if product.photo.attached? %>
+                <%= cl_image_tag product.photo.key, class: 'card-img-top index-image' %>
+              <% else %>
+              <%= image_tag("unknown.jpg", class:"card-img-top my_product_image index-image") %>
+              <% end %>
+              <h5 class="card-title text-center"><%= link_to product.title, product_path(product) %></h5>
+              <p class="card-text"><%= product.price_per_day %> €/ jour</p>
+              <%= link_to "Voir le produit", product, class: "rounded-pill btn btn-outline-warning" %>
+            </div>
           </div>
         </div>
+      <% end %>
       </div>
-    <% end %>
     </div>
-  </div>
 </div>
